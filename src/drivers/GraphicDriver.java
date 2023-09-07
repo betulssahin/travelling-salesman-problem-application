@@ -279,6 +279,25 @@ public class GraphicDriver extends javax.swing.JFrame {
         );
 
         //explanatoryPanel
+        explanatoryPanel.setBackground(new java.awt.Color(179, 204, 255));
+
+        citiesLabel.setFont(new java.awt.Font("Arial", 0, 18));
+        citiesLabel.setText("Cities");  //number of cities ?
+
+        ImageIcon icon1 = new ImageIcon("res/city.png");
+        image1.setIcon(icon1);
+
+        bestRouteLabel.setFont(new java.awt.Font("Arial", 0, 18));
+        bestRouteLabel.setText("the best route");
+        ImageIcon icon2 = new ImageIcon("res/line1.png");
+        image2.setIcon(icon2);
+
+        routesLabel.setFont(new java.awt.Font("Arial", 0, 18));
+        routesLabel.setText("possible routes");
+        ImageIcon icon3 = new ImageIcon("res/line2.png");
+        image3.setIcon(icon3);
+
+
 
 
     }
