@@ -298,7 +298,58 @@ public class GraphicDriver extends javax.swing.JFrame {
         image3.setIcon(icon3);
 
 
+        //layout for explanatory panel
+        javax.swing.GroupLayout explanatoryPanelLayout = new javax.swing.GroupLayout(explanatoryPanel);
+        explanatoryPanel.setLayout(explanatoryPanelLayout);
 
+        explanatoryPanelLayout.setHorizontalGroup(
+                explanatoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(explanatoryPanelLayout.createSequentialGroup()
+                                .addGroup(explanatoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(explanatoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(image2)
+                                                .addComponent(image3))
+                                        .addComponent(image1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(21, 21, 21)
+                                .addGroup(explanatoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(routesLabel)
+                                        .addComponent(bestRouteLabel)
+                                        .addComponent(citiesLabel)))
+        );
+
+        explanatoryPanelLayout.setVerticalGroup(
+                explanatoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(explanatoryPanelLayout.createSequentialGroup()
+                                .addGroup(explanatoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(image1)
+                                        .addComponent(citiesLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(explanatoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(bestRouteLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(image2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(explanatoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(explanatoryPanelLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(routesLabel))
+                                        .addGroup(explanatoryPanelLayout.createSequentialGroup()
+                                                .addGap(19, 19, 19)
+                                                .addComponent(image3))))
+        );
+
+
+        //setting panel for selection
+        settingsPanel.setBackground(new java.awt.Color(179, 204, 255));
+
+        settingsLabel1.setFont(new java.awt.Font("Arial", 0, 18));
+        settingsLabel1.setText("Number of cities");
+
+        settingsBox1.setFont(new java.awt.Font("Arial", 0, 15));
+        settingsBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"10", "12", "15", "20", "25", "30", "40", "50"}));
+        settingsBox1.setSelectedItem("10");
+        settingsBox1.addActionListener(e -> {
+            Settings.NUM_OF_CITIES = Integer.parseInt((String) settingsBox1.getSelectedItem());
+        });
+        
 
     }
 
