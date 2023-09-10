@@ -71,6 +71,8 @@ public class GraphicDriver extends javax.swing.JFrame {
     //  Canvas for the animation
     private AnimationPanel panel1;
 
+    private boolean selectButtonClicked = false;
+
     public GraphicDriver() {
 
         initComponents();
@@ -237,7 +239,7 @@ public class GraphicDriver extends javax.swing.JFrame {
         selectButton.setFont(new java.awt.Font("Arial", 0, 18));
         selectButton.setForeground(new java.awt.Color(36, 36, 36));
         selectButton.setText("Select");
-        selectButton.addActionListener(new java.awt.event.ActionEvent(){
+        selectButton.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
                 selectButtonActionPerformed(evt);
             }
@@ -248,7 +250,7 @@ public class GraphicDriver extends javax.swing.JFrame {
         startButton.setFont(new java.awt.Font("Arial", 0, 18));
         startButton.setForeground(new java.awt.Color(36, 36, 36));
         startButton.setText("Start");
-        startButton.addActionListener(new java.awt.event.ActionEvent(){
+        startButton.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
                 startButtonActionPerformed(evt);
             }
@@ -510,7 +512,7 @@ public class GraphicDriver extends javax.swing.JFrame {
         settingsPanelLayout.setVerticalGroup(
                 settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(settingsPanelLayout.createSequentialGroup()
-                                .addGroup(0,0,0)
+                                .addGap(0, 0, 0)
                                 .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(settingsBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(populationNumber)
@@ -625,7 +627,43 @@ public class GraphicDriver extends javax.swing.JFrame {
 
 
     //animation part
+    private void startButtonActionPerformed(java.awt.event.ActionEvent evt){
+        panel1.geneticAThread.stop();
+        panel1.setIsSelecting(false);
+        panel1.startAnimation();
+    }
 
+    //random cities func
+    private void randomButtonActionPerformed(java.awt.event.ActionEvent evt){
+        panel1.geneticAThread.stop();
+
+        if (selectButtonClicked){
+            settingsPanel.remove(populationNumber);
+            settingsPanel.add(settingsBox1);
+
+            //population size default vlaue
+            settingsBox1.setSelectedItem("10");
+            Settings.POPULATION_SIZE=10;
+            selectButtonClicked = false;
+            settingsPanel.repaint();
+        }
+        panel1.setIsSelecting(false);
+        panel1.randomCities();
+    }
+
+
+    //select cities func
+    private void selectButtonActionPerformed(java.awt.event.ActionEvent evt){
+        panel1.geneticAThread.stop();
+        selectButtonClicked = true;
+        settingsPanel.remove(settingsBox1);
+
+        settingsPanel.add(populationNumber);
+        settingsPanel.repaint();
+        panel1.setIsSelecting(true);
+
+        panel1.selectCities();
+    }
 
 
 
