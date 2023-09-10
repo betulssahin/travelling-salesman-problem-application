@@ -337,7 +337,7 @@ public class GraphicDriver extends javax.swing.JFrame {
         );
 
 
-        //setting panel for selection
+        //setting panel for selection  -- number of cities
         settingsPanel.setBackground(new java.awt.Color(179, 204, 255));
 
         settingsLabel1.setFont(new java.awt.Font("Arial", 0, 18));
@@ -349,11 +349,282 @@ public class GraphicDriver extends javax.swing.JFrame {
         settingsBox1.addActionListener(e -> {
             Settings.NUM_OF_CITIES = Integer.parseInt((String) settingsBox1.getSelectedItem());
         });
-        
+
+        //if select button pressed, populationNumber
+        populationNumber.setFont(new java.awt.Font("Arial", 0, 15));
+        populationNumber.setText("000");
+
+
+        //population size settings
+        settingsLabel2.setFont(new java.awt.Font("Arial", 0, 18));
+        settingsLabel2.setText("Population Size");
+
+        settingsBox2.setFont(new java.awt.Font("Arial", 0, 15));
+        settingsBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"5", "8", "10", "15", "30", "40", "50"}));
+        settingsBox2.setSelectedItem("10");
+        settingsBox2.addActionListener(e -> {
+            Settings.POPULATION_SIZE = Integer.parseInt((String) settingsBox2.getSelectedItem());
+        });
+
+        //number of generations settings
+        settingsLabel3.setFont(new java.awt.Font("Arial", 0, 18));
+        settingsLabel3.setText("Number of generations");
+
+        settingsBox3.setFont(new java.awt.Font("Arial", 0, 15));
+        settingsBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"15", "30", "50", "100", "200", "300", "500", "800", "1000"}));
+        settingsBox3.setSelectedItem("30");
+        settingsBox3.addActionListener(e -> {
+            Settings.GENERATION_LIMIT = Integer.parseInt((String) settingsBox3.getSelectedItem());
+        });
+
+
+        //mutation rate settings
+        settingsLabel4.setFont(new java.awt.Font("Arial", 0, 18));
+        settingsLabel4.setText("Mutation rate");
+
+        settingsBox4.setFont(new java.awt.Font("Arial", 0, 15));
+        settingsBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"0%", "2%", "3%", "5%", "6%", "8%", "10%", "50%", "100%"}));
+        settingsBox4.setSelectedItem("5%");
+        settingsBox4.addActionListener(e -> {
+            String selectedItem = (String) settingsBox4.getSelectedItem();
+            //convert  to double values
+            double setValue;
+            switch (selectedItem){
+                case "0%": setValue = 0;
+                break;
+                case "2%": setValue = 0.02;
+                break;
+                case "3%" : setValue = 0.03;
+                break;
+                case "5%" : setValue = 0.05;
+                break;
+                case "6%" : setValue = 0.06;
+                break;
+                case "8%" : setValue = 0.08;
+                break;
+                case "10%": setValue = 0.1;
+                break;
+                case "50%" :setValue = 0.5;
+                break;
+                case "100%" : setValue = 1;
+                break;
+                default: setValue = 0.05;
+            }
+            Settings.MUTATION_RATE = setValue;
+        });
+
+        // selection settings
+        settingsLabel5.setFont(new java.awt.Font("Arial", 0, 18));
+        settingsLabel5.setText("Selection");
+
+        settingsBox5.setFont(new java.awt.Font("Arial", 0, 15));
+        settingsBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"2", "3","4", "5","6","7","8","9","10"}));
+        settingsBox5.setSelectedItem("4");
+        settingsBox5.addActionListener(e -> {
+            Settings.SELECTION_SIZE = Integer.parseInt((String) settingsBox5.getSelectedItem());
+
+        });
+
+
+        //elite routes settings
+        settingsLabel6.setFont(new java.awt.Font("Arial", 0, 18));
+        settingsLabel6.setText("Elite Routes");
+
+        settingsBox6.setFont(new java.awt.Font("Arial",0,15));
+        settingsBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"0","1","2", "3","4", "5","6","7","8"}));
+        settingsBox6.setSelectedItem("1");
+        settingsBox6.addActionListener(e -> {
+            Settings.NUMB_OF_ELITE_ROUTES = Integer.parseInt((String) settingsBox6.getSelectedItem());
+
+        });
+
+        //animation speed settings
+        settingsLabel7.setFont(new java.awt.Font("Arial", 0, 18));
+        settingsLabel7.setText("Animation speed");
+
+        settingsBox7.setFont(new java.awt.Font("Arial", 0, 15));
+        settingsBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"10%","20%","30%","40%","50%","60%","70%","80%","90%","100%"}));
+        settingsBox7.setSelectedItem("100%");
+        settingsBox7.addActionListener(e -> {
+            String selectedItem = (String) settingsBox7.getSelectedItem();
+
+            int setValue;
+            switch (selectedItem){
+                case "10%" : setValue = 1000;
+                break;
+                case "20%": setValue = 900;
+                break;
+                case "30%": setValue = 800;
+                break;
+                case "40%": setValue = 700;
+                break;
+                case "50%":setValue = 500;
+                break;
+                case "60%" : setValue = 400;
+                break;
+                case "70%" : setValue = 300;
+                break;
+                case "80%": setValue = 200;
+                break;
+                case "90%": setValue = 100;
+                break;
+                case "100%": setValue = 20;
+                break;
+                default: setValue = 100;
+            }
+            Settings.DELAY = setValue;
+        });
+
+        //layout for settingspanel
+        javax.swing.GroupLayout settingsPanelLayout = new javax.swing.GroupLayout(settingsPanel);
+        settingsPanel.setLayout(settingsPanelLayout);
+        settingsPanelLayout.setHorizontalGroup(
+                settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(settingsPanelLayout.createSequentialGroup()
+                                .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(settingsPanelLayout.createSequentialGroup()
+                                                .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(settingsPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                                                .addComponent(settingsLabel4)
+                                                                .addComponent(settingsLabel5)
+                                                                .addComponent(settingsLabel6)
+                                                                .addComponent(settingsLabel2)
+                                                                .addComponent(settingsLabel3))
+                                                        .addComponent(settingsLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                                                .addGap(10,10,10))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, settingsPanelLayout.createSequentialGroup()
+                                                .addComponent(settingsLabel7)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(populationNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(settingsBox5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE )
+                                        .addComponent(settingsBox4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(settingsBox3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(settingsBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(settingsBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(settingsBox6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(settingsBox7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+
+        );
+
+        settingsPanelLayout.setVerticalGroup(
+                settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(settingsPanelLayout.createSequentialGroup()
+                                .addGroup(0,0,0)
+                                .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(settingsBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(populationNumber)
+                                        .addComponent(settingsLabel1))
+                                .addGap(20,20,20)
+                                .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(settingsLabel2)
+                                        .addComponent(settingsBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(20,20,20)
+                                .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(settingsBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(settingsLabel3))
+                                .addGap(20,20,20)
+                                .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(settingsLabel4)
+                                        .addComponent(settingsBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(20,20,20)
+                                .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(settingsBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(settingsLabel5))
+                                .addGap(20,20,20)
+                                .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(settingsPanelLayout.createSequentialGroup()
+                                                .addComponent(settingsBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(20,20,20)
+                                                .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(settingsBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(settingsLabel7)))
+                                        .addComponent(settingsLabel6))
+                                .addGap(0,0,0))
+        );
+
+        copyrightLabel.setText("Copyright 2023 betulsahin");
+
+        //right panel layout
+        javax.swing.GroupLayout rightPanelLayout = new javax.swing.GroupLayout(rightPanel);
+        rightPanel.setLayout(rightPanelLayout);
+        rightPanelLayout.setHorizontalGroup(
+                rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(rightPanelLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(divider4, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(settingsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(divider3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(divider2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(divider1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(buttonsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(rightPanelLayout.createSequentialGroup()
+                                                .addGap(33,33,33)
+                                                .addComponent(titleLabel)))
+                                .addGap(0,0,Short.MAX_VALUE))
+                        .addGroup(rightPanelLayout.createSequentialGroup()
+                                .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(rightPanelLayout.createSequentialGroup()
+                                                .addGap(65,65,65)
+                                                .addComponent(explanatoryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(rightPanelLayout.createSequentialGroup()
+                                                .addGap(79,79,79)
+                                                .addComponent(copyrightLabel)))
+                                .addContainerGap(49, Short.MAX_VALUE))
+        );
+
+        rightPanelLayout.setVerticalGroup(
+                rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(rightPanelLayout.createSequentialGroup()
+                                .addGap(23,23,23)
+                                .addComponent(titleLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(divider1, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(13,13,13)
+                                .addComponent(divider2, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18,18,18)
+                                .addComponent(explanatoryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18,18,18)
+                                .addComponent(divider3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18,18,18)
+                                .addComponent(settingsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(divider4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(copyrightLabel)
+                                .addGap(12,12,12))
+        );
+
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0,0,0)
+                                .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+
+        );
+        layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+
+        settingsPanel.remove(populationNumber);
+        repaint();
+        setVisible(true);
 
     }
 
 
+    //animation part
 
 
 

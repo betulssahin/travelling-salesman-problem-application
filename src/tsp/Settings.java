@@ -20,8 +20,8 @@ public class Settings {
     //  How many generations are evolved before the algorithm ends
     public static double MUTATION_RATE = 0.05;
     //  Usually works the best around 4 to 8 percent
-    public static int TOURNAMENT_SELECTION_SIZE = 4;
-    //  The maximum for TOURNAMENT_SELECTION_SIZE in the GUI is 10 to avoid errors when NUMB_OF_CITIES has minimum 10
+    public static int SELECTION_SIZE = 4;
+    //  The maximum for SELECTION_SIZE in the GUI is 10 to avoid errors when NUMB_OF_CITIES has minimum 10
 //  However for larger amount of cities (30 and more) is better to have this value higher than 10
 //  So feel free to adjust the limit in GraphicDriver, but then always select higher NUMB_OF_CITIES than TOURNAMENT_SELECTION_SIZE
     public static int DELAY = 20;
