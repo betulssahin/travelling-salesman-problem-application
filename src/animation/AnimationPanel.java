@@ -25,7 +25,7 @@ public class AnimationPanel extends JPanel {
     public AnimationPanel() {
         this.geneticAThread.initialRoute = new ArrayList<City>();
 
-        Image backgroundImage = new ImageIcon("res/TurkiyeMap.png").getImage();
+        Image backgroundImage = new ImageIcon("res/tMap.jpg").getImage();
         this.setVisible(true);
     }
 
@@ -55,7 +55,7 @@ public class AnimationPanel extends JPanel {
 
     public void drawPopulation() {
         drawBestRoute();
-        g2D.setColor(Color.RED);
+        g2D.setColor(Color.GRAY);
         geneticAThread.population.getRoutes().forEach(x -> {
             ArrayList<City> route = x.getCities();
             drawRoute(route);
@@ -64,11 +64,11 @@ public class AnimationPanel extends JPanel {
     }
 
     public void drawBestRoute() {
-        g2D.setColor(Color.DARK_GRAY);
+        g2D.setColor(Color.RED);
         g2D.setStroke(stroke);
         drawRoute(geneticAThread.population.getRoutes().get(0).getCities());
         g2D.setStroke(new BasicStroke(0));
-        g2D.setColor(Color.blue);
+        g2D.setColor(Color.DARK_GRAY);
     }
 
     private void drawRoute(ArrayList<City> route) {
@@ -198,7 +198,7 @@ public class AnimationPanel extends JPanel {
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Image backgroundImage = new ImageIcon("res/TurkiyeMap.png").getImage();
+        Image backgroundImage = new ImageIcon("res/tMap.jpg").getImage();
         g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
         this.g2D = (Graphics2D) g;
 

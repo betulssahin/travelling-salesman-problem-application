@@ -4,8 +4,7 @@ import src.animation.AnimationPanel;
 import src.tsp.Settings;
 
 import javax.swing.*;
-import java.awt.Color;
-
+import java.awt.*;
 
 
 public class GraphicDriver extends javax.swing.JFrame {
@@ -138,16 +137,17 @@ public class GraphicDriver extends javax.swing.JFrame {
         //JFrame settings
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        setBackground(Color.BLUE);
-        setMinimumSize(new java.awt.Dimension(1360, 765));
-        setPreferredSize(new java.awt.Dimension(1360, 765));
+        setBackground(Color.LIGHT_GRAY);
+        setMinimumSize(new java.awt.Dimension(1600, 765));
+        setPreferredSize(new java.awt.Dimension(1600, 765));
+        setMaximumSize(new java.awt.Dimension(1600, 765));
 
         ImageIcon icon = new ImageIcon("res/map.png");
         setIconImage(icon.getImage());
         setTitle("Traveling Salesman Problem Application");
 
         //header panel settings
-        headerPanel.setBackground(new java.awt.Color(255, 230, 179));
+        headerPanel.setBackground(new java.awt.Color(179, 204, 255));
 
 
         //Label for generation
@@ -188,7 +188,7 @@ public class GraphicDriver extends javax.swing.JFrame {
                         .addComponent(generationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        leftPanel.setBackground(Color.BLACK);
+        leftPanel.setBackground(Color.LIGHT_GRAY);
         javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
         leftPanel.setLayout(leftPanelLayout);
         leftPanelLayout.setHorizontalGroup(
@@ -218,16 +218,17 @@ public class GraphicDriver extends javax.swing.JFrame {
         //title label
         titleLabel.setFont(new java.awt.Font("Arial", 0, 25));
         titleLabel.setText("Welcome");
-        titleLabel.setToolTipText("");
+        titleLabel.setToolTipText("hey, what's up?");
 
         //button panel
-        buttonsPanel.setBackground(new java.awt.Color(204, 179, 255));
+        buttonsPanel.setBackground(new java.awt.Color(179, 204, 255));
 
         //random button
-        randomButton.setBackground(new java.awt.Color(191, 255, 179));
-        randomButton.setFont(new java.awt.Font("Arial", 0, 18));
-        randomButton.setForeground(new java.awt.Color(36, 36, 36));
+        randomButton.setBackground(new java.awt.Color(255, 204, 153));
+        randomButton.setFont(new java.awt.Font("Arial", Font.BOLD, 15));
+        randomButton.setForeground(new java.awt.Color(66, 66, 66));
         randomButton.setText("Random");
+        randomButton.setToolTipText("asdfgh");
         randomButton.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
                 randomButtonActionPerformed(evt);
@@ -235,10 +236,11 @@ public class GraphicDriver extends javax.swing.JFrame {
         });
 
         //select button
-        selectButton.setBackground(new java.awt.Color(191, 255, 179));
-        selectButton.setFont(new java.awt.Font("Arial", 0, 18));
-        selectButton.setForeground(new java.awt.Color(36, 36, 36));
+        selectButton.setBackground(new java.awt.Color(255, 204, 153));
+        selectButton.setFont(new java.awt.Font("Arial", Font.BOLD, 15));
+        selectButton.setForeground(new java.awt.Color(66, 66, 66));
         selectButton.setText("Select");
+        selectButton.setToolTipText("leave it to experts;)");
         selectButton.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
                 selectButtonActionPerformed(evt);
@@ -246,10 +248,11 @@ public class GraphicDriver extends javax.swing.JFrame {
         });
 
         //start button
-        startButton.setBackground(new java.awt.Color(191, 255, 179));
-        startButton.setFont(new java.awt.Font("Arial", 0, 18));
-        startButton.setForeground(new java.awt.Color(36, 36, 36));
+        startButton.setBackground(new java.awt.Color(255, 204, 153));
+        startButton.setFont(new java.awt.Font("Arial", Font.BOLD, 15));
+        startButton.setForeground(new java.awt.Color(66, 66, 66));
         startButton.setText("Start");
+        startButton.setToolTipText("let's go!");
         startButton.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
                 startButtonActionPerformed(evt);
@@ -290,12 +293,12 @@ public class GraphicDriver extends javax.swing.JFrame {
         image1.setIcon(icon1);
 
         bestRouteLabel.setFont(new java.awt.Font("Arial", 0, 18));
-        bestRouteLabel.setText("the best route");
+        bestRouteLabel.setText("The best route");
         ImageIcon icon2 = new ImageIcon("res/line1.png");
         image2.setIcon(icon2);
 
         routesLabel.setFont(new java.awt.Font("Arial", 0, 18));
-        routesLabel.setText("possible routes");
+        routesLabel.setText("Possible routes");
         ImageIcon icon3 = new ImageIcon("res/line2.png");
         image3.setIcon(icon3);
 
@@ -430,7 +433,7 @@ public class GraphicDriver extends javax.swing.JFrame {
 
         //elite routes settings
         settingsLabel6.setFont(new java.awt.Font("Arial", 0, 18));
-        settingsLabel6.setText("Elite Routes");
+        settingsLabel6.setText("Elite routes");
 
         settingsBox6.setFont(new java.awt.Font("Arial",0,15));
         settingsBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"0","1","2", "3","4", "5","6","7","8"}));
@@ -499,13 +502,13 @@ public class GraphicDriver extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                                 .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(populationNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(settingsBox5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE )
-                                        .addComponent(settingsBox4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(settingsBox3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(settingsBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(settingsBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(settingsBox6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(settingsBox7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(settingsBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE )
+                                        .addComponent(settingsBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(settingsBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(settingsBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(settingsBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(settingsBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(settingsBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
 
         );
 
