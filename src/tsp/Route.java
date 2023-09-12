@@ -4,23 +4,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-
 public class Route {
-
     private boolean isFitnessChanged = true;
-
     private double fitness = 0;
     private ArrayList<City> cities = new ArrayList<City>();
-
     public Route(GeneticAlgorithm geneticAlgorithm){
         geneticAlgorithm.getInitialRoute().forEach(x->cities.add(null));
     }
-
     public Route(ArrayList<City> cities){
         this.cities.addAll(cities);
         Collections.shuffle(this.cities);
     }
-
     public double getFitness(){
         if (isFitnessChanged){
             fitness = (1/totalDistance())*1000;
@@ -28,7 +22,6 @@ public class Route {
         }
         return fitness;
     }
-
     public double totalDistance(){
         int numOfCities = this.cities.size();
         int sum = 0;
@@ -43,19 +36,16 @@ public class Route {
             }
             sum += returnValue;
         }
-
         City firstCity = this.cities.get(0);
         City lastCity = this.cities.get(numOfCities - 1);
         sum += firstCity.measureDistance(lastCity);
 
         return sum;
     }
-
     @Override
     public String toString(){
         return Arrays.toString(cities.toArray());
     }
-
     public ArrayList<City> getCities(){
         isFitnessChanged = true;
         return cities;

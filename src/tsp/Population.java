@@ -10,11 +10,9 @@ public class Population {
         IntStream.range(0, populationSize).forEach(x -> routes.add(new Route(geneticAlgorithm.getInitialRoute())));
 
     }
-
     public Population(int populationSize, ArrayList<City> cities){
         IntStream.range(0, populationSize).forEach(x -> routes.add(new Route(cities)));
     }
-
     public void sortRoutesByFitness(){
         routes.sort((route1, route2) -> {
             int flag = 0;
@@ -27,7 +25,6 @@ public class Population {
 
         });
     }
-
     public ArrayList<Route> getRoutes() {
         return routes;
     }

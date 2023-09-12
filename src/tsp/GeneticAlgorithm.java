@@ -3,23 +3,18 @@ package src.tsp;
 import java.util.ArrayList;
 import java.util.stream.IntStream;
 
-
 public class GeneticAlgorithm {
 
     private ArrayList<City> initialRoute;
-
     public GeneticAlgorithm(ArrayList<City> initialRoute){
         this.initialRoute = initialRoute;
     }
-
     public ArrayList<City> getInitialRoute(){
         return initialRoute;
     }
-
     public Population evolve(Population population){
         return mutatePopulation(crossoverPopulation(population));
     }
-
     private Population mutatePopulation(Population population){
         population.getRoutes().stream().filter(x->population.getRoutes().indexOf(x) >= Settings.NUMB_OF_ELITE_ROUTES).forEach(x->mutateRoute(x));
         return population;

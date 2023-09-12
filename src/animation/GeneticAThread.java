@@ -2,30 +2,19 @@ package src.animation;
 
 import src.drivers.GraphicDriver;
 import src.tsp.*;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-
 public class GeneticAThread implements Runnable {
-
     private final DecimalFormat DF = new DecimalFormat("#.###");
-
     private Thread geneticAThread;
-
     public ArrayList<City> initialRoute;
-
     public Population population;
-
     private AnimationPanel panel;
-
     public boolean running = false;
-
     private int generationNumber = 1;
-
     public GeneticAThread(AnimationPanel panel) {
         this.panel = panel;
     }
-
     public void start(){
         if (population == null)
             return;
@@ -34,7 +23,6 @@ public class GeneticAThread implements Runnable {
         geneticAThread = new Thread(this);
         geneticAThread.start();
     }
-
     public void stop(){
         if (geneticAThread == null)
             return;
@@ -42,7 +30,6 @@ public class GeneticAThread implements Runnable {
         geneticAThread.interrupt();
         geneticAThread = null;
     }
-
     @Override
     public void run(){
         if (!running)
