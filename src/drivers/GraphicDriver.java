@@ -141,10 +141,7 @@ public class GraphicDriver extends javax.swing.JFrame {
 
         ImageIcon icon = new ImageIcon("res/map.png");
         setIconImage(icon.getImage());
-        setTitle("Traveling Salesman Problem Application");
-
-        //header panel settings
-        headerPanel.setBackground(new java.awt.Color(179, 204, 255));
+        setTitle("Travelling Salesman Problem Application");
 
 
         //Label for generation
@@ -162,6 +159,10 @@ public class GraphicDriver extends javax.swing.JFrame {
         fitnessLabel.setForeground(new java.awt.Color(31, 31, 31));
         fitnessLabel.setText("Highest Fitness: 0.000");
 
+
+        //header panel settings
+        headerPanel.setBackground(new java.awt.Color(179, 204, 255));
+
         //header panel layout
         javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
         headerPanel.setLayout(headerPanelLayout);
@@ -177,13 +178,13 @@ public class GraphicDriver extends javax.swing.JFrame {
                                 .addComponent(fitnessLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addContainerGap(50, Short.MAX_VALUE))
         );
-
         headerPanelLayout.setVerticalGroup(
                 headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment. LEADING)
                         .addComponent(totalDistanceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(fitnessLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(generationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
 
         leftPanel.setBackground(Color.LIGHT_GRAY);
         javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
@@ -268,7 +269,6 @@ public class GraphicDriver extends javax.swing.JFrame {
                                 .addGap(13, 13, 13)
                                 .addComponent(selectButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
         buttonsPanelLayout.setVerticalGroup(
                 buttonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(buttonsPanelLayout.createSequentialGroup()
@@ -284,21 +284,17 @@ public class GraphicDriver extends javax.swing.JFrame {
         explanatoryPanel.setBackground(new java.awt.Color(179, 204, 255));
 
         citiesLabel.setFont(new java.awt.Font("Arial", 0, 18));
-        citiesLabel.setText("Cities");  //number of cities ?
-
+        citiesLabel.setText("Cities");
         ImageIcon icon1 = new ImageIcon("res/city.png");
         image1.setIcon(icon1);
-
         bestRouteLabel.setFont(new java.awt.Font("Arial", 0, 18));
         bestRouteLabel.setText("The best route");
         ImageIcon icon2 = new ImageIcon("res/line1.png");
         image2.setIcon(icon2);
-
         routesLabel.setFont(new java.awt.Font("Arial", 0, 18));
         routesLabel.setText("Possible routes");
         ImageIcon icon3 = new ImageIcon("res/line2.png");
         image3.setIcon(icon3);
-
 
         //layout for explanatory panel
         javax.swing.GroupLayout explanatoryPanelLayout = new javax.swing.GroupLayout(explanatoryPanel);
@@ -318,7 +314,6 @@ public class GraphicDriver extends javax.swing.JFrame {
                                         .addComponent(bestRouteLabel)
                                         .addComponent(citiesLabel)))
         );
-
         explanatoryPanelLayout.setVerticalGroup(
                 explanatoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(explanatoryPanelLayout.createSequentialGroup()
@@ -352,7 +347,7 @@ public class GraphicDriver extends javax.swing.JFrame {
             Settings.NUM_OF_CITIES = Integer.parseInt((String) settingsBox1.getSelectedItem());
         });
 
-        //if select button pressed, populationNumber
+        //if select button pressed, populationNumber (number of cities 0)
         populationNumber.setFont(new java.awt.Font("Arial", 0, 15));
         populationNumber.setText("000");
 
