@@ -6,16 +6,13 @@ import src.tsp.Settings;
 import javax.swing.*;
 import java.awt.*;
 
-
 public class GraphicDriver extends javax.swing.JFrame {
 
     //declaration
     //  RightPanel and its components
     private javax.swing.JPanel rightPanel;
-
     //  Title (Traveling salesman)
     private javax.swing.JLabel titleLabel;
-
     //  divider lines
     private javax.swing.JSeparator divider1;
     private javax.swing.JSeparator divider2;
@@ -27,7 +24,7 @@ public class GraphicDriver extends javax.swing.JFrame {
     private javax.swing.JButton startButton;
     private javax.swing.JButton randomButton;
     private javax.swing.JButton selectButton;
-    private javax.swing.JLabel copyrightLabel;
+    private javax.swing.JLabel developerLabel;
 
     //  Explanatory panel with information about  the animation
     private javax.swing.JPanel explanatoryPanel;
@@ -120,7 +117,7 @@ public class GraphicDriver extends javax.swing.JFrame {
         populationNumber = new JLabel();
 
         titleLabel = new javax.swing.JLabel();
-        copyrightLabel = new javax.swing.JLabel();
+        developerLabel = new javax.swing.JLabel();
 
         randomButton = new javax.swing.JButton();
         selectButton = new javax.swing.JButton();
@@ -548,7 +545,7 @@ public class GraphicDriver extends javax.swing.JFrame {
                                 .addGap(0,0,0))
         );
 
-        copyrightLabel.setText("Copyright 2023 betulsahin");
+        developerLabel.setText("2023 betulsahin");
 
         //right panel layout
         javax.swing.GroupLayout rightPanelLayout = new javax.swing.GroupLayout(rightPanel);
@@ -575,7 +572,7 @@ public class GraphicDriver extends javax.swing.JFrame {
                                                 .addComponent(explanatoryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(rightPanelLayout.createSequentialGroup()
                                                 .addGap(79,79,79)
-                                                .addComponent(copyrightLabel)))
+                                                .addComponent(developerLabel)))
                                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
@@ -599,7 +596,7 @@ public class GraphicDriver extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(divider4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(copyrightLabel)
+                                .addComponent(developerLabel)
                                 .addGap(12,12,12))
         );
 

@@ -17,12 +17,8 @@ public class City {
     public String toString() {
         return this.getName();
     }
-    public int getX(){
-        return x;
-    }
-    public int getY(){
-        return y;
-    }
+    public int getX(){return x;}
+    public int getY(){return y;}
     public void setX(int x){
         this.x = x;
     }

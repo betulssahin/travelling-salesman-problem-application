@@ -19,7 +19,6 @@ public class GeneticAlgorithm {
         population.getRoutes().stream().filter(x->population.getRoutes().indexOf(x) >= Settings.NUMB_OF_ELITE_ROUTES).forEach(x->mutateRoute(x));
         return population;
     }
-
     private void mutateRoute(Route route){
         route.getCities().stream().filter(x->Math.random() < Settings.MUTATION_RATE).forEach(cityX->{
             int y = (int) (route.getCities().size()*Math.random());
@@ -29,7 +28,6 @@ public class GeneticAlgorithm {
         });
 
     }
-
     private Population crossoverPopulation(Population population){
         Population crossoverPopulation = new Population(population.getRoutes().size(), this);
         IntStream.range(0, Settings.NUMB_OF_ELITE_ROUTES).forEach(x->crossoverPopulation.getRoutes().set(x, population.getRoutes().get(x)));
@@ -40,7 +38,6 @@ public class GeneticAlgorithm {
         });
         return crossoverPopulation;
     }
-
     private Population selection(Population population){
         Population sPopulation = new Population(Settings.SELECTION_SIZE, this);
         IntStream.range(0, Settings.SELECTION_SIZE).forEach(x->{
