@@ -12,7 +12,7 @@ This application allows some variables to be set:
 
 
  
-### How to Run
+## How to Run
 * Clone this repo to your local machine
 * Open the project in your Java IDE.
 * Locate the `Main` class and run it.
