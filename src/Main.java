@@ -1,7 +1,6 @@
 package src;
 
 import src.drivers.GraphicDriver;
-
 import java.io.IOException;
 
 public class Main{
