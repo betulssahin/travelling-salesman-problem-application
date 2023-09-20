@@ -1,5 +1,9 @@
 ## Travelling Salesman Problem Application
+
 Solution of the traveling salesman problem with generic algorithm. This application includes a GUI for animation and visualization.
+
+Solution of the traveling salesman problem with generic algorithm. This application includes a GUI for animation and visualization. 
+
 
 This application allows some variables to be set:
 * Population size
@@ -19,4 +23,3 @@ This application allows some variables to be set:
 * TA-DA!
 
   p.s: make sure you have Java installed on your pretty computer.
-
