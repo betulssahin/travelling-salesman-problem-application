@@ -1,8 +1,8 @@
 ## Travelling Salesman Problem Application
 
-Solution of the traveling salesman problem with generic algorithm. This application includes a GUI for animation and visualization.
+Solution of the traveling salesman problem with genetic algorithm. This application includes a GUI for animation and visualization.
 
-Solution of the traveling salesman problem with generic algorithm. This application includes a GUI for animation and visualization. 
+Solution of the traveling salesman problem with genetic algorithm. This application includes a GUI for animation and visualization. 
 
 
 This application allows some variables to be set:
